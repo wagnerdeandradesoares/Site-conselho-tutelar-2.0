@@ -1,0 +1,720 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: #00579C;
+    padding: 2rem 2rem;
+    position: relative;
+    height: 130px; /* Ajuste a altura do header conforme necessário */
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo dentro do header */
+    align-items: center; /* Alinha o conteúdo verticalmente */
+}
+
+/* Logo */
+header .logo img {
+    position: absolute; /* A logo ficará sobre o header */
+    left: 15%; /* Movimenta a logo para a esquerda */
+    top: 60%; /* Posiciona a logo verticalmente no centro do header */
+    transform: translateY(-50%); /* Centraliza a logo verticalmente */
+    height: auto; /* A altura da logo será ajustada automaticamente */
+    width: 15%; /* Ajuste o tamanho da logo conforme necessário */
+    max-width: 120px; /* Tamanho máximo da logo */
+}
+
+/* Navegação centralizada */
+header nav {
+    display: flex;
+    justify-content: center; /* Centraliza os itens de navegação */
+    align-items: center;
+    width: 100%; /* Garante que a navegação ocupe toda a largura */
+}
+
+/* Links de navegação */
+header .nav-links {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content:space-between ; /* Centraliza os itens de navegação */
+    margin-left: 130%;
+}
+
+header .nav-links li {
+    display: inline;
+    margin-left: 30px; /* Distância entre os itens do menu */
+}
+
+header .nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header .nav-links li a:hover {
+    color: #ffcc00;
+}
+
+/* Menu Hambúrguer */
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    /* Ocultar o menu para telas menores */
+    .nav-links ul {
+        display: none;
+    }
+
+    /* Mostrar o menu hambúrguer em telas pequenas */
+    .hamburger {
+        display: block;
+    }
+
+    /* Quando o menu hambúrguer for ativado, mostrar o menu */
+    .nav-links.active ul {
+        display: block;
+        position: absolute;
+        top: 60px; /* Abaixo do header */
+        left: 0;
+        background-color: #00579C;
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .nav-links.active ul li {
+        margin: 10px 0;
+    }
+
+    .nav-links.active ul li a {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* Hero Section - Banner Esticado */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 50vh; /* A altura do banner é ajustada para ocupar 80% da altura da tela */
+    background: url('https://via.placeholder.com/1500x800') no-repeat center center/cover;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 10px;
+    overflow: hidden;
+    background-attachment: fixed; /* Efeito parallax */
+    position: relative;
+}
+
+/* Overlay para melhorar a legibilidade do texto */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Overlay escuro */
+    z-index: -1;
+}
+
+/* Conteúdo centralizado da Hero */
+.hero-content {
+    max-width: 100vw;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo translúcido */
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: fadeInUp 1.5s ease-out;
+    color: #ffcc00; /* Cor de destaque para o título */
+}
+
+.hero-description {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    line-height: 1.8;
+    font-family: 'Arial', sans-serif;
+    animation: fadeInUp 1.5s ease-out 0.5s;
+    color: #ffffff; /* Cor branca para o texto */
+}
+
+.cta-button {
+    background-color: #ffcc00;
+    color: #004e89;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.cta-button:hover {
+    background-color: #e6b800;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Animação de Fade-in e efeito de movimento */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade para dispositivos menores */
+@media (max-width: 768px) {
+    .hero {
+        height: 70vh; /* A altura do banner é ajustada em telas menores */
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+    }
+
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1.1rem;
+    }
+}
+
+.sobre {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: #f9f9f9;
+    margin-top: 80px; /* Para garantir que o conteúdo não se sobreponha ao cabeçalho fixo */
+}
+
+.sobre h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #00579C;
+    font-weight: bold;
+}
+
+.sobre p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.sobre a {
+    color: #00579C;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.sobre a:hover {
+    color: #ffcc00;
+}
+
+/* Estilo do carrossel */
+/* Estilo do carrossel */
+.carrossel {
+    width: 100%;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    display: flex;
+    width: 300%; /* A largura agora será 3x a largura de uma imagem */
+    transition: transform 0.5s ease;
+}
+
+.carousel-slide img {
+    width: 33.33%; /* Cada imagem ocupará 1/3 do carrossel */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Efeito de aumentar a imagem ao passar o mouse */
+.carousel-slide img:hover {
+    transform: scale(1.1); /* Aumenta a imagem */
+    cursor: pointer;
+}
+
+.carrossel h3{
+
+    margin-bottom: 20px;
+}
+
+
+/* Adicionando botão de navegação */
+.carousel-button {
+    background-color: #00579C;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-button:hover {
+    background-color: #004e89;
+}
+
+
+.sobre, .servicos, .contato {
+    padding: 4rem 2rem;
+    text-align: center;
+    
+}
+
+.sobre h2, .servicos h2, .contato h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #00579C;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.servicos ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.servicos li {
+    background-color: #fff;
+    margin-bottom: 15px;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.servicos li:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.servicos h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: bold;
+}
+
+#servicos img {
+    max-width: 80%; /* Garante que as imagens se ajustem bem dentro dos itens */
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Adicionando estilo aos ícones */
+.servicos i {
+    font-size: 2.5rem;
+    color: #00579C;
+    margin-bottom: 10px;
+}
+
+/* Link para mais informações */
+.servicos p a {
+    color: #00579C;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.servicos p a:hover {
+    color: #ffcc00;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 1.5rem 0;
+    text-align: center;
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form button {
+    background-color: #00579C;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #004e89;
+}
+
+/* Seção de Contato */
+.contato {
+    padding: 4rem 2rem;
+    background-color: #fff;
+    color: #333;
+    text-align: center;
+}
+
+.contato h2 {
+    font-size: 2.5rem;
+    color: #00579C;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.contato p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.contato h3 {
+    font-size: 2rem;
+    margin-top: 30px;
+    color: #00579C;
+    font-weight: bold;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form button {
+    background-color: #00579C;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #004e89;
+}
+
+/* Seção de Contato */
+.contato {
+    padding: 4rem 2rem;
+    background-color: #fff;
+    color: #333;
+    text-align: center;
+    margin-top: 80px; /* Para garantir que o conteúdo não se sobreponha ao cabeçalho fixo */
+}
+
+.contato h2 {
+    font-size: 2.8rem;
+    color: #00579C;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.contato p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.form-container {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 3rem;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.form-container h3 {
+    font-size: 2rem;
+    color: #00579C;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+form label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+form button {
+    background-color: #00579C;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #004e89;
+}
+
+/* Outras formas de contato */
+.contato-links {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.contato-links h3 {
+    font-size: 2.5rem;
+    color: #00579C;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.contato-links p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Estilo do container dos cards */
+.contato-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+
+/* Estilo dos cards de contato */
+.contato-card {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contato-card:hover {
+    transform: translateY(-10px); /* Efeito de levantar o card */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Sombra mais forte no hover */
+}
+
+/* Ícones no card */
+.contato-card i {
+    font-size: 3rem;
+    color: #00579C;
+    margin-bottom: 20px;
+}
+
+/* Títulos dos cards */
+.contato-card h4 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Descrição dos cards */
+.contato-card p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Estilo dos botões */
+.btn-contato {
+    background-color: #00579C;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.btn-contato:hover {
+    background-color: #004e89;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .contato-cards {
+        grid-template-columns: 1fr; /* Colocar os cards em uma coluna em telas menores */
+    }
+}
+
+
+.atendimento {
+    background-color: #e9f5ff;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.atendimento h3 {
+    font-size: 2rem;
+    color: #00579C;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.atendimento ul {
+    list-style-type: none;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.atendimento li {
+    margin-bottom: 10px;
+}
+
+/* Google Maps */
+.mapa iframe {
+    width: 100%;
+    height: 400px;
+    border: 0;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Estilo para a mensagem de sucesso ou erro */
+.mensagem {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    padding: 10px;
+    display: none;
+}
+
+.mensagem.sucesso {
+    background-color: #28a745;
+    color: white;
+    display: block;
+}
+
+.mensagem.erro {
+    background-color: #dc3545;
+    color: white;
+    display: block;
+}
+
+
+
