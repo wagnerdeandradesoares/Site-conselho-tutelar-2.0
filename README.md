@@ -79,3 +79,6 @@ Instalar dependências com npm install
 Executar o servidor com node server.js
 
 Acessar http://localhost:3000 no navegador
+8. Visualizar na Web
+
+Acessar: https://site-conselho-tutelar-2-0.vercel.app/
